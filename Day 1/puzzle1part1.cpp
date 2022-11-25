@@ -5,15 +5,15 @@ using namespace std;
 
 int main()
 {
+    // Reading input file
     ifstream fin("input.txt");
-
     vector<int> data;
-
     int element;
     while (fin >> element)
     {
         data.push_back(element);
     }
+    // Solving puzzle
     int count = 0;
     int firstNum, secondNum;
     for (int i = 0; i < data.size(); i++)

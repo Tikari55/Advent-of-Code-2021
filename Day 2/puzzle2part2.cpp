@@ -1,12 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <utility>
 using namespace std;
-
 int main()
 {
-    int depth = 0, horizontalPos = 0;
+    int depth = 0, horizontalPos = 0, aim = 0;
     int result;
     ifstream input("input.txt");
     vector<pair<string, int>> data;
@@ -21,12 +19,13 @@ int main()
         if (data[i].first == "forward")
         {
             horizontalPos += data[i].second;
+            depth += data[i].second * aim;
         }else if (data[i].first == "down")
         {
-            depth += data[i].second;
+            aim += data[i].second;
         }else
         {
-            depth -= data[i].second;
+            aim -= data[i].second;
         }
     }
     result = depth*horizontalPos;
